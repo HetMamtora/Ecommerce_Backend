@@ -6,13 +6,14 @@ const bodyParser = require("body-parser");
 const errorMiddleware = require("./middleware/error")
 const fileUpload = require("express-fileupload")
 const path = require("path");
+const cors = require('cors');
 
 //CONFIG
 if (process.env.NODE_ENV !== "PRODUCTION") {
     require("dotenv").config({ path: "backend/config/config.env" });
   }
 
-
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser())
 //app.use(bodyParser.urlencoded({extended:true}))
